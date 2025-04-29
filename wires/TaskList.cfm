@@ -30,6 +30,7 @@
             <li class="task-item">
                 <div class="task-row">
                     <span style="flex-grow:1;">#task#</span>
+                    <button wire:click="startEdit(#i#)" class="secondary">Edit</button>
                 </div>
             </li>
         </cfloop>
