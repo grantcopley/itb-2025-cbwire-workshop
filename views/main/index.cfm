@@ -1,1 +1,1 @@
-<cfoutput>#wire( "TaskList" )#</cfoutput>
+<cfoutput>#wire( "TaskList", { "allowDelete": true } )#</cfoutput>

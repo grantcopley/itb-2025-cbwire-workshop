@@ -40,7 +40,9 @@
                     <cfelse>
                         <span class="task-text">#task#</span>
                         <button wire:click="startEdit(#i#)" class="secondary">Edit</button>
-                        <button wire:click="deleteTask(#i#)" class="secondary">Delete</button>
+                        <cfif allowDelete>
+                            <button wire:click="deleteTask(#i#)" class="secondary">Delete</button>
+                        </cfif>
                     </cfif>
                 </div>
             </li>

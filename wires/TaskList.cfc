@@ -6,9 +6,15 @@ component extends="cbwire.models.Component" {
         "inputError": "",
         "editMode": false,
         "editIndex": 0,
-        "editInput": ""
+        "editInput": "",
+        "allowDelete": false
     };
 
+    function onMount( params ) {
+        if ( params.keyExists( "allowDelete" ) ) {
+            data.allowDelete = params.allowDelete;
+        }
+    }
     
     function addTask() {
         data.inputError = "";
