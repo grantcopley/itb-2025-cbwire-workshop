@@ -1,7 +1,30 @@
 {
+    "name":"itb-2025-cbwire-workshop@1",
+    "app":{
+        "serverHomeDirectory":".engine/boxlang",
+        "cfengine":"boxlang@be"
+    },
     "web":{
+        "http":{
+            "port":"56343"
+        },
         "rewrites":{
             "enable":"true"
         }
+    },
+    "openBrowser":"true",
+    "cfconfig":{
+        "file":".cfconfig.json"
+    },
+    "fusionreactor":{
+        "enable":false
+    },
+    "jvm":{
+        "heapSize":"512",
+        "javaVersion":"openjdk21_jre",
+        "args":"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8888"
+    },
+    "scripts":{
+        "onServerInitialInstall":"install bx-compat-cfml --noSave"
     }
 }
