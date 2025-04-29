@@ -1,5 +1,5 @@
 <cfoutput>
-<div class="container" style="max-width: 600px; margin: auto; padding-top: 2rem;">
+<div class="container task-container">
 
     <h2>Task List Manager</h2>
 
@@ -11,6 +11,7 @@
             type="text" 
             placeholder="Enter a new task..." 
             wire:model="taskInput"
+            class="task-input"
             required
         >
         <button wire:click="addTask" type="button" class="contrast">Add Task</button>
@@ -18,7 +19,7 @@
 
 
     <cfif inputError.len()>
-        <div style="margin-top: 1rem; margin-bottom: 1rem;">
+        <div class="task-error">
             <strong>Error:</strong> #inputError#
         </div>
     </cfif>
@@ -26,8 +27,8 @@
     <!-- Task List -->
     <ul>
         <cfloop array="#tasks#" index="i" item="task">
-            <li style="margin-bottom: 0.5rem;">
-                <div style="display: flex; align-items: center; gap: 1rem;">
+            <li class="task-item">
+                <div class="task-row">
                     <span style="flex-grow:1;">#task#</span>
                 </div>
             </li>
