@@ -25,10 +25,14 @@
     },
     "installPaths":{
         "coldbox":"coldbox/",
-        "testbox":"testbox/"
+        "testbox":"testbox/",
+        "cbwire":"modules/cbwire/",
+        "cbvalidation":"modules/cbvalidation/"
     },
     "dependencies":{
-        "coldbox":"^7.0.0"
+        "coldbox":"^7.0.0",
+        "cbwire":"4.1",
+        "cbvalidation":"^4.5.0+27"
     },
     "scripts":{
         "postInstall":"pathExists .env || cp .env.example .env && package set ignore=[]",
