@@ -4,4 +4,8 @@ component extends="cbwire.models.Component" {
         "tasks": [],
         "taskInput": ""
     };
+
+    function addTask() {
+        data.tasks.append( data.taskInput );
+    }
 }

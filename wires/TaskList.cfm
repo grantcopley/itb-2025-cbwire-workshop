@@ -18,6 +18,14 @@
 
     <!-- Task List -->
     <ul>
+
+        <cfloop array="#tasks#" index="i" item="task">
+            <li style="margin-bottom: 0.5rem;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span style="flex-grow:1;">#task#</span>
+                </div>
+            </li>
+        </cfloop>
         <cfif not arrayLen( tasks )>
             <li><em>No tasks yet. Add one above!</em></li>
         </cfif>
