@@ -6,6 +6,9 @@ component extends="cbwire.models.Component" {
     };
 
     function addTask() {
-        data.tasks.append( data.taskInput );
+        if ( data.taskInput.len() ) {
+            data.tasks.append( data.taskInput );
+            data.taskInput = "";
+        }
     }
 }
