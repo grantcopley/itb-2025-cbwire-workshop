@@ -3,7 +3,10 @@ component extends="cbwire.models.Component" {
     data = {
         "tasks": [],
         "taskInput": "",
-        "inputError": ""
+        "inputError": "",
+        "editMode": false,
+        "editIndex": 0,
+        "editInput": ""
     };
 
     
@@ -19,5 +22,11 @@ component extends="cbwire.models.Component" {
             data.tasks.append( data.taskInput );
             data.taskInput = "";
         }
+    }
+
+    function startEdit( index ) {
+        data.editMode = true;
+        data.editIndex = index;
+        data.editInput = data.tasks[index];
     }
 }

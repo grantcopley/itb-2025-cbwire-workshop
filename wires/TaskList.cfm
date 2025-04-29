@@ -29,8 +29,18 @@
         <cfloop array="#tasks#" index="i" item="task">
             <li class="task-item">
                 <div class="task-row">
-                    <span style="flex-grow:1;">#task#</span>
-                    <button wire:click="startEdit(#i#)" class="secondary">Edit</button>
+                    <cfif editMode AND editIndex EQ i>
+                        <input 
+                            type="text" 
+                            wire:model="editInput"
+                            class="task-input"
+                        >
+                        <button wire:click="saveEdit" class="secondary">Save</button>
+                        <button wire:click="cancelEdit" class="secondary">Cancel</button>
+                    <cfelse>
+                        <span class="task-text">#task#</span>
+                        <button wire:click="startEdit(#i#)" class="secondary">Edit</button>
+                    </cfif>
                 </div>
             </li>
         </cfloop>
