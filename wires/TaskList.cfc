@@ -42,4 +42,9 @@ component extends="cbwire.models.Component" {
         data.editIndex = 0;
         data.editInput = "";
     }
+
+    function deleteTask(index) {
+        data.tasks.deleteAt( index );
+        cancelEdit();
+    }
 }
