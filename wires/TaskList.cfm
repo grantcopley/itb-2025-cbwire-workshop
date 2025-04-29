@@ -16,9 +16,15 @@
         <button wire:click="addTask" type="button" class="contrast">Add Task</button>
     </form>
 
+
+    <cfif inputError.len()>
+        <div style="margin-top: 1rem; margin-bottom: 1rem;">
+            <strong>Error:</strong> #inputError#
+        </div>
+    </cfif>
+
     <!-- Task List -->
     <ul>
-
         <cfloop array="#tasks#" index="i" item="task">
             <li style="margin-bottom: 0.5rem;">
                 <div style="display: flex; align-items: center; gap: 1rem;">
