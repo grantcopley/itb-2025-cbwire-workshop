@@ -5,6 +5,17 @@
 
     <hr>
 
+    <!-- Add Task Form -->
+    <form class="grid">
+        <input 
+            type="text" 
+            placeholder="Enter a new task..." 
+            wire:model="taskInput"
+            required
+        >
+        <button wire:click="addTask" type="button" class="contrast">Add Task</button>
+    </form>
+
     <!-- Task List -->
     <ul>
         <cfif not arrayLen( tasks )>
