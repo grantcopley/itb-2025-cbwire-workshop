@@ -29,4 +29,17 @@ component extends="cbwire.models.Component" {
         data.editIndex = index;
         data.editInput = data.tasks[index];
     }
+
+    function saveEdit() {
+        if ( data.editIndex != 0) {
+            data.tasks[data.editIndex] = data.editInput;
+        }
+        cancelEdit();
+    }
+
+    function cancelEdit() {
+        data.editMode = false;
+        data.editIndex = 0;
+        data.editInput = "";
+    }
 }
