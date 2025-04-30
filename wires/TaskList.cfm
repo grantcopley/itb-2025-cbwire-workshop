@@ -3,7 +3,7 @@
 
     <h2>Task List Manager</h2>
 
-    <div>Page loaded: #dateTimeFormat( now(), "yyyy-mm-dd h:mm:ss tt" )#</div>
+    <div wire:ignore>Page loaded: #dateTimeFormat( now(), "yyyy-mm-dd h:mm:ss tt" )#</div>
 
     <hr>
 
