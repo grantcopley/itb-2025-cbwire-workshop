@@ -3,6 +3,8 @@
 
     <h2>Task List Manager</h2>
 
+    <div>Page loaded: #dateTimeFormat( now(), "yyyy-mm-dd h:mm:ss tt" )#</div>
+
     <hr>
 
     <!-- Add Task Form -->
@@ -16,7 +18,6 @@
         >
         <button wire:click="addTask" type="button" class="contrast">Add Task</button>
     </form>
-
 
     <cfif inputError.len()>
         <div class="task-error">
