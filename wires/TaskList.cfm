@@ -28,26 +28,8 @@
 
     <!-- Task List -->
     <ul>
-        <cfloop array="#tasks#" index="i" item="task">
-            <li class="task-item">
-                <div class="task-row">
-                    <cfif editMode AND editIndex EQ i>
-                        <input 
-                            type="text" 
-                            wire:model="editInput"
-                            class="task-input"
-                        >
-                        <button wire:click="saveEdit" class="secondary">Save</button>
-                        <button wire:click="cancelEdit" class="secondary">Cancel</button>
-                    <cfelse>
-                        <span class="task-text">#task#</span>
-                        <button wire:click="startEdit(#i#)" class="secondary">Edit</button>
-                        <cfif allowDelete>
-                            <button wire:click="deleteTask(#i#)" class="secondary">Delete</button>
-                        </cfif>
-                    </cfif>
-                </div>
-            </li>
+        <cfloop array="#tasks#" item="task">
+            #wire( "TaskItem", { "task": task } )#
         </cfloop>
         <cfif not arrayLen( tasks )>
             <li><em>No tasks yet. Add one above!</em></li>
