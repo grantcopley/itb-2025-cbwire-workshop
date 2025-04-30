@@ -5,7 +5,7 @@ component extends="cbwire.models.Component" {
         "editMode": false,
         "index": 0,
         "editInput": "",
-        "allowDelete": false
+        "allowDelete": true
     };
 
     function onMount( params ) {
@@ -24,10 +24,15 @@ component extends="cbwire.models.Component" {
     }
 
     function saveEdit() {
-        // let's try updating the session directly
         data.task = data.editInput;
         session.tasks[data.index] = data.editInput;
         cancelEdit();
+    }
+
+    function deleteTask() {
+        // This deletes it but why isn't the list refreshing?
+        data.task = "";
+        session.tasks.deleteAt( data.index );
     }
 
 }
