@@ -1,5 +1,5 @@
 <cfoutput>
-    <li class="task-item">
+    <li class="task-item" wire:key="task-#id#">
         <div class="task-row">
             <cfif editMode>
                 <input 

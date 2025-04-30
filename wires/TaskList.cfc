@@ -11,6 +11,8 @@ component extends="cbwire.models.Component" {
     };
 
     function onMount( params ) {
+        session.tasks = [];
+
         if ( session.keyExists( "tasks" ) && isArray( session.tasks ) ) {
             data.tasks = session.tasks;
         }
@@ -29,17 +31,13 @@ component extends="cbwire.models.Component" {
         }
 
         if ( data.taskInput.len() ) {
-            data.tasks.append( data.taskInput );
+            data.tasks.append( {
+                "id": createUUID(),
+                "task": data.taskInput
+            } );
             data.taskInput = "";
             updateSession();
         }
-    }
-
-    function saveEdit() {
-        if ( data.editIndex != 0) {
-            data.tasks[data.editIndex] = data.editInput;
-        }
-        cancelEdit();
     }
 
     function updateSession() {

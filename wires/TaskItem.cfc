@@ -3,14 +3,14 @@ component extends="cbwire.models.Component" {
     data = {
         "task": "",
         "editMode": false,
-        "index": 0,
+        "id": 0,
         "editInput": "",
         "allowDelete": true
     };
 
     function onMount( params ) {
         data.task = params.task;
-        data.index = params.index;
+        data.id = params.id;
     }
 
     function startEdit() {
@@ -25,14 +25,26 @@ component extends="cbwire.models.Component" {
 
     function saveEdit() {
         data.task = data.editInput;
-        session.tasks[data.index] = data.editInput;
+
+        var taskIndex = getTaskIndex( data.id );
+
+        session.tasks[taskIndex].task = data.editInput;
         cancelEdit();
     }
 
     function deleteTask() {
         data.task = "";
-        session.tasks.deleteAt( data.index );
+
+        var taskIndex = getTaskIndex( data.id );
+
+        session.tasks.deleteAt( taskIndex );
         dispatch( "taskListUpdated" );
+    }
+
+    function getTaskIndex( id ) {
+        return session.tasks.find( function( task ) {
+            return task.id == id;
+        } );
     }
 
 }

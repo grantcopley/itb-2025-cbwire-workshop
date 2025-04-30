@@ -28,8 +28,8 @@
 
     <!-- Task List -->
     <ul>
-        <cfloop array="#tasks#" item="task" index="i">
-            #wire( "TaskItem", { "task": task, "index": i }, "task-#i#" )#
+        <cfloop array="#tasks#" item="taskObj" index="i">
+            #wire( "TaskItem", { "task": taskObj.task, "id": taskObj.id }, "task-#taskObj.id#" )#
         </cfloop>
         <cfif not arrayLen( tasks )>
             <li wire:key="no-task"><em>No tasks yet. Add one above!</em></li>
