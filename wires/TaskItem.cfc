@@ -3,13 +3,14 @@ component extends="cbwire.models.Component" {
     data = {
         "task": "",
         "editMode": false,
-        "editIndex": 0,
+        "index": 0,
         "editInput": "",
         "allowDelete": false
     };
 
     function onMount( params ) {
         data.task = params.task;
+        data.index = params.index;
     }
 
     function startEdit() {
