@@ -32,15 +32,6 @@ component extends="cbwire.models.Component" {
         cancelEdit();
     }
 
-    function deleteTask() {
-        data.task = "";
-
-        var taskIndex = getTaskIndex( data.id );
-
-        session.tasks.deleteAt( taskIndex );
-        dispatch( "taskListUpdated" );
-    }
-
     function getTaskIndex( id ) {
         return session.tasks.find( function( task ) {
             return task.id == id;

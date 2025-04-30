@@ -49,4 +49,17 @@ component extends="cbwire.models.Component" {
             data.tasks = session.tasks;
         }
     }
+
+    function deleteTask( id ) {
+        var taskIndex = getTaskIndex( id );
+        session.tasks.deleteAt( taskIndex );
+        refreshTasks();
+    }
+
+    function getTaskIndex( id ) {
+        return session.tasks.find( function( task ) {
+            return task.id == id;
+        } );
+    }
+
 }

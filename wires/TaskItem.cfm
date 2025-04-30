@@ -13,7 +13,7 @@
                 <span class="task-text">#task#</span>
                 <button wire:click="startEdit" class="secondary">Edit</button>
                 <cfif allowDelete>
-                    <button wire:click="deleteTask" class="secondary">Delete</button>
+                    <button wire:click="$parent.deleteTask( '#id#' )" class="secondary">Delete</button>
                 </cfif>
             </cfif>
         </div>
