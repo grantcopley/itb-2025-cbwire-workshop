@@ -8,7 +8,7 @@
     <hr>
 
     <!-- Add Task Form -->
-    <form class="grid">
+    <form wire:submit="addTask" class="grid">
         <input 
             type="text" 
             placeholder="Enter a new task..." 
@@ -16,7 +16,8 @@
             class="task-input"
             required
         >
-        <button wire:click="addTask" type="button" class="contrast">Add Task</button>
+
+        <button type="submit" class="contrast">Add Task</button>
     </form>
 
     <cfif inputError.len()>
