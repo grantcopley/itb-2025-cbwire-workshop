@@ -6,6 +6,10 @@ component extends="cbwire.models.Component" {
         "inputError": ""
     };
 
+    listeners = {
+        "taskListUpdated": "$refresh"
+    };
+
     function onMount( params ) {
         if ( session.keyExists( "tasks" ) && isArray( session.tasks ) ) {
             data.tasks = session.tasks;

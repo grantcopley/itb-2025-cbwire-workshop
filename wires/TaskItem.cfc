@@ -30,9 +30,9 @@ component extends="cbwire.models.Component" {
     }
 
     function deleteTask() {
-        // This deletes it but why isn't the list refreshing?
         data.task = "";
         session.tasks.deleteAt( data.index );
+        dispatch( "taskListUpdated" );
     }
 
 }
