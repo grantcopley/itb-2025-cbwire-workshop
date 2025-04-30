@@ -11,6 +11,10 @@ component extends="cbwire.models.Component" {
     };
 
     function onMount( params ) {
+        if ( session.keyExists( "tasks" ) && isArray( session.tasks ) ) {
+            data.tasks = session.tasks;
+        }
+
         if ( params.keyExists( "allowDelete" ) ) {
             data.allowDelete = params.allowDelete;
         }
@@ -27,6 +31,7 @@ component extends="cbwire.models.Component" {
         if ( data.taskInput.len() ) {
             data.tasks.append( data.taskInput );
             data.taskInput = "";
+            updateSession();
         }
     }
 
@@ -51,6 +56,11 @@ component extends="cbwire.models.Component" {
 
     function deleteTask(index) {
         data.tasks.deleteAt( index );
+        updateSession();
         cancelEdit();
+    }
+
+    function updateSession() {
+        session.tasks = duplicate( data.tasks );
     }
 }
