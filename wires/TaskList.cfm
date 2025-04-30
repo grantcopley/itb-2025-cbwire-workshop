@@ -1,5 +1,5 @@
 <cfoutput>
-<div class="container task-container">
+<div class="container task-container" wire:poll.20s="refreshTasks">
 
     <h2>Task List Manager</h2>
 

@@ -63,4 +63,10 @@ component extends="cbwire.models.Component" {
     function updateSession() {
         session.tasks = duplicate( data.tasks );
     }
+
+    function refreshTasks() {
+        if ( session.keyExists( "tasks" ) && isArray( session.tasks ) ) {
+            data.tasks = session.tasks;
+        }
+    }
 }
