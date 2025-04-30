@@ -7,7 +7,7 @@ component extends="cbwire.models.Component" {
     };
 
     listeners = {
-        "taskListUpdated": "$refresh"
+        "taskListUpdated": "refreshTasks"
     };
 
     function onMount( params ) {
