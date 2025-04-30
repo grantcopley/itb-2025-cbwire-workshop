@@ -24,8 +24,9 @@ component extends="cbwire.models.Component" {
     }
 
     function saveEdit() {
-        // what are we going to do here now!?
-        throw( type="NotImplemented", message="saveEdit not implemented" );
+        // let's try this but this won't update the session
+        data.task = data.editInput;
+        cancelEdit();
     }
 
 }
