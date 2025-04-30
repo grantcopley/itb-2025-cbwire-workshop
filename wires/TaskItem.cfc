@@ -24,8 +24,9 @@ component extends="cbwire.models.Component" {
     }
 
     function saveEdit() {
-        // let's try this but this won't update the session
+        // let's try updating the session directly
         data.task = data.editInput;
+        session.tasks[data.index] = data.editInput;
         cancelEdit();
     }
 
